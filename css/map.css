@@ -1,0 +1,162 @@
+#map-container {
+	height: 700px; 
+	width: 900px;
+	position:relative;
+}
+
+#map { 
+	height: 700px; 
+	width: 900px;
+	position:relative;
+}
+
+div.leaflet-control-attribution.leaflet-control{
+	visibility: hidden;
+}
+
+path { fill-opacity: .4; stroke: white; stroke-width: 1px; pointer-events:all; }
+path:hover {  fill-opacity: .1; }
+
+#hover-tooltip {
+    position: absolute;
+    width: 200px;
+    min-height: 18px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font: 11px sans-serif;
+    font-weight: bold;
+    border: 1px;
+    border-radius: 5px;
+    color: #000;
+    pointer-events: none;
+    z-index: 999999999;
+    border:1px solid #e8e8e8;
+    background-color:#FFF;
+	opacity: 0.8;
+}
+
+.tooltip-paragraph{
+	font-size: 10px;
+	padding-left: 20px;
+}
+
+.thin-tooltip-label{
+	color: rgb(102,102,102);
+	font-weight: lighter;
+}
+
+hr{
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
+}
+.map-sidebar {
+	width:160px;
+	height:700px;
+	position: absolute;
+	top:0px;
+	right:0px;
+	background-color:#FFF;
+	border-left:solid 1px #CCC;
+}
+
+.history-elections{
+	font: 11px sans-serif;
+	width: 140px;
+	height: 23px;
+	position: absolute;
+	top: 110px;
+	right:7px;
+	background-color: #FFF;
+	border: solid thin #CCC;
+	border-radius: 5px;
+	z-index: 100;	
+}
+#e110612Sta{
+	top: 134px;
+}
+#e110811Mun{
+	top: 158px;
+}
+#e110210Sta{
+	top: 182px;
+}
+#e110309Mun{
+	top: 206px;
+}
+#e110408Sta{
+	top: 230px;
+}
+#e110607Mun{
+	top: 254px;
+}
+#e110706Sta{
+	top: 278px;
+}
+#e110805Mun{
+	top: 302px;
+}
+
+#click-label{
+	top:80px;
+	font-size:9px;
+	font-style: italic;
+	color: rgb(120,120,120);
+	border: none;
+}
+#click-label:hover{
+	background-color: #FFF;
+}
+#click-label:active{
+	-ms-transition-duration: 0.1s;
+	-ms-transform: scale(1);
+	-webkit-transition-duration: 0.1s;
+	-webkit-transform: scale(1);
+	-moz-transition-duration: 0.1s;
+	-moz-transform: scale(1);
+	-o-transition-duration: 0.1s;
+	-o-transform: scale(1);
+}
+.history-elections:hover{
+	background-color: #eee;
+}
+.history-elections:active{
+	background-color: rgb(230,230,230);
+	-ms-transition-duration: 0.1s;
+	-ms-transform: scale(0.95);
+	-webkit-transition-duration: 0.1s;
+	-webkit-transform: scale(0.95);
+	-moz-transition-duration: 0.1s;
+	-moz-transform: scale(0.95);
+	-o-transition-duration: 0.1s;
+	-o-transform: scale(0.95);
+}
+
+.election-label{
+	position: absolute;
+	top: 5px;
+	left: 8px;
+}
+
+.map-title{
+	font: 20px sans-serif;
+	width: 240px;
+	height: 40px;
+	position: absolute;
+	top: 15px;
+	left: 50px;
+	z-index: 100;
+	color: rgb(100,100,100);
+}
+.map-title-label{
+	position: absolute;
+	top: 6px;
+	left: 10px;
+}
+
+/* d3 tooltips in safari no worky without this */
+.leaflet-map-pane { height: 200%; width: 200%; position:absolute; }

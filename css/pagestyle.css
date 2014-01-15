@@ -1,0 +1,10 @@
+.page-header{
+	font-family:"Helvetica";
+	font-size:36px;
+	line-height: 80px;
+	color: rgb(100,100,100);
+}
+
+#title{
+	width: 900px;
+}
