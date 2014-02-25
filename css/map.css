@@ -76,28 +76,28 @@ hr{
 	border-radius: 5px;
 	z-index: 100;	
 }
-#e110612Sta{
+#Y2012{
 	top: 134px;
 }
-#e110811Mun{
+#Y2011{
 	top: 158px;
 }
-#e110210Sta{
+#Y2010{
 	top: 182px;
 }
-#e110309Mun{
+#Y2009{
 	top: 206px;
 }
-#e110408Sta{
+#Y2008{
 	top: 230px;
 }
-#e110607Mun{
+#Y2007{
 	top: 254px;
 }
-#e110706Sta{
+#Y2006{
 	top: 278px;
 }
-#e110805Mun{
+#Y2005{
 	top: 302px;
 }
 
@@ -143,9 +143,9 @@ hr{
 }
 
 .map-title{
-	font: 20px sans-serif;
+	font: 32px sans-serif;
 	width: 240px;
-	height: 40px;
+	height: 70px;
 	position: absolute;
 	top: 15px;
 	left: 50px;
