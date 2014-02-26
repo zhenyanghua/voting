@@ -102,7 +102,7 @@ d3.json("data/precincts.json",function(data){
 		$('#hover-tooltip').stop();
 		$('#hover-tooltip').show();
 		$(".dialog-title").html("<div align='left'><span class='thin-tooltip-label'>Ward: </span>"+feature.properties.WDPCT.substring(0,2)+"<span class='thin-tooltip-label'>&nbsp&nbsp&nbsp Precinct: </span>"+feature.properties.WDPCT.substring(2,4)+
-					"<p><span class='thin-tooltip-label'>Elibible Voter Population (Est): </span>"+feature.properties.wdpct_elip+"</p></div>");
+					"<p><span class='thin-tooltip-label'>Eligible Voter Population (Est): </span>"+feature.properties.wdpct_elip+"</p></div>");
 		if (selectedElection!="") {
 		    $(".dialog-title").append("<div align='left'><p><span class='thin-tooltip-label'>Ballots Cast: </span>"+eval('feature.properties.'+selectedElection)+"</p><hr>"+
 					"<p><span class='thin-tooltip-label'>Eligible Voter Participation: </span>"+(eval('feature.properties.'+selectedElection)/feature.properties.wdpct_elip*100).toFixed(2)+"%</p>"+
