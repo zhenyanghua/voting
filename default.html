@@ -1,1 +1,150 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Boston Eligible Voter Participation</title><!-- Map -->    <link rel="stylesheet" href="css/map.css"/>    <link rel="stylesheet" href="css/pagestyle.css"/>    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />        <!--[if lte IE 8]>             <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />         <![endif]-->    <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js" type="text/javascript"></script>	<script src="js/d3.v3.min.js"></script>    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>    <script src="js/l.control.geosearch.js"></script>	<script src="js/l.geosearch.provider.google.js"></script>	<link rel="stylesheet" href="css/l.geosearch.css" /></head><body><div align="center"><div id="container">	<div id="title" align="left"><span class="page-header">Boston Eligible Voter Participation</span></div>    <div id="map-container">        <div id="hover-tooltip">            <h4 class="dialog-title"></h4>        </div>        <div id="map"></div>	<script type="text/javascript" src="js/map.js"></script>	<div class="map-title"><span class="map-title-label">Eligible Voter Population</span></div>	<div id="click-label" class="history-elections" align="center"><span>click to see different election participation</span></div>	<div id="Y2013" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2013 Municipal Election</span></div>	<div id="Y2012" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2012 State Election</span></div>	<div id="Y2011" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2011 Municipal Election</span></div>	<div id="Y2010" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2010 State Election</span></div>	<div id="Y2009" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2009 Municipal Election</span></div>	<div id="Y2008" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2008 State Election</span></div>	<div id="Y2007" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2007 Municipal Election</span></div>	<div id="Y2006" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2006 State Election</span></div>	<div id="Y2005" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2005 Municipal Election</span></div>    </div></div></div>    </body></html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Who Could Really Vote?</title>
+<!-- Map -->
+    <link rel="stylesheet" href="css/map.css"/>
+    <link rel="stylesheet" href="css/pagestyle.css"/>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+        <!--[if lte IE 8]>
+             <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+         <![endif]-->
+    <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+	<script src="js/d3.v3.min.js"></script>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/l.control.geosearch.js"></script>
+	<script src="js/l.geosearch.provider.google.js"></script>
+	<link rel="stylesheet" href="css/l.geosearch.css" />
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+<div align="center">
+<div id="container">
+	<div id="title"><span class="page-header">Who Could Really Vote?</span></div>
+    <div id="menu">
+    	<span id="menu-about" class="menu-text"><a href="#about">About</a></span>
+        <span id="menu-bg" class="menu-text"><a href="#background">Background</a></span>
+        <span id="menu-pr" class="menu-text"><a href="#pr">Population re-aggregation</a></span>
+        <span id="menu-pt" class="menu-text"><a href="#pt">Participation trends</a></span>
+        <span id="menu-conclud" class="menu-text"><a href="#conclusion">Conclusion</a></span>
+    </div>
+    
+    <div id="about">
+    	<div class="sub-title"><a name="about">About</a></div>
+        <img src="img/blue-line.png"/>
+        <div class="center-text content-paragraph">This project was presented in the student illustrated paper competition (GIS/RS/Cartography group) at AAG 2014.<br />
+        Zhenyang Hua, Marcos Luna | Department of Geography, Salem State University</div>
+    </div>
+    
+    <div id="abstract">
+    	<div class="sub-title"><a name="background">Abstract</a></div>
+        <img src="img/blue-line.png"/>
+        <div class="content-paragraph">
+        The purpose of this project is to demonstrate the use of a cadastral-based dasymetric mapping method to map eligible voter participation at the precinct level. Voter participation can be measured in several ways: 1) the number of votes cast in a given area; 2) the number of votes cast as a proportion of registered voters in a given area; and 3) the number of votes cast as a proportion of all eligible individuals in a given area who could, in principle, vote (i.e. US citizens who are 18 years of age or older). While maps of the first two are common, the last is not. This is due in part to data availability. The numbers of votes cast in a given election and the numbers of registered voters in wards or precincts are data regularly collected and made available by state and local elections officials. By contrast, the numbers of all eligible or potential voters in a given area are often a matter of conjecture or rough estimation. These numbers must be derived by re-aggregating Census populations to voting precincts. However, Census units often do not coincide with precinct boundaries. Traditional methods of map re-aggregation, such as centroid allocation or simple areal weighting, only work well when the census units are evenly spread out, which may not always be the case. In this project we apply a cadastral-based Dasymetric mapping method to estimate eligible voter participation in precincts in Boston, Massachusetts.
+        </div>
+    </div>
+    <div id="map-container">
+        <div id="hover-tooltip">
+            <h4 class="dialog-title"></h4>
+        </div>
+        <div id="map"></div>
+		<script type="text/javascript" src="js/map.js"></script>
+        <div class="map-title"><span class="map-title-label">Eligible Voter Population</span></div>
+        <div id="click-label" class="history-elections" align="center"><span>click to see different election participation</span></div>
+        <div id="Y2013" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2013 Municipal Election</span></div>
+        <div id="Y2012" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2012 State Election</span></div>
+        <div id="Y2011" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2011 Municipal Election</span></div>
+        <div id="Y2010" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2010 State Election</span></div>
+        <div id="Y2009" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2009 Municipal Election</span></div>
+        <div id="Y2008" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2008 State Election</span></div>
+        <div id="Y2007" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2007 Municipal Election</span></div>
+        <div id="Y2006" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2006 State Election</span></div>
+        <div id="Y2005" class="history-elections" align="center" onclick="changeElection(this.id)"><span class="election-label">2005 Municipal Election</span></div>
+    </div>
+    <div id="background">
+    	<div class="sub-title">Background</div>
+        <img src="img/blue-line.png"/>
+        <div id="content-bg-img">
+        	<img src="img/content-bg.gif" width="400" alt="Non-coincident Boundaries, City of Boston"/>
+       </div>
+       <div id="content-bg-text-1" class="content-paragraph">
+       The non-coincident boundaries of precinct and tract data make data re-aggregated by centroid allocation or simple areal weighting insufficient for high accuracy population estimation purposes. In this project, to portray the eligible voter participation trend from 2005 to 2012 as accurately as possible, a special dasymetric mapping method is used to overcome this boundary issue.
+       </div>
+    </div>
+    
+    <div id="pr">
+    	<div class="sub-title"><a name="pr">Population re-aggregation</a></div>
+        <img src="img/blue-line.png"/>
+    	<div id="content-pr-img">
+       		<img src="img/tract-precinct.gif" width="400" alt="Tract to Precinct"/>
+       </div>
+       <div id="content-pr-equation">
+       		<img src="img/equation.gif" width="400" alt="Tract to Precinct Equation"/>
+       </div>
+       <div id="content-pr-text-1" class="content-paragraph">
+The potential eligible population consists of people who are 18 years and over, native or foreign born or naturalized U.S. citizens. In order to estimate that population more accurately, parcel property data are used to disaggregate the tract population.
+In order to generate population estimates of voting precincts, Census Tract population data is first disaggregated to property parcels based on the proportion of living area that each parcel represents within that Census Tract. Each parcel contains information about the amount of living area within the residential units on that parcel. The Census Tract population is allocated to each parcel based on its respective proportion of living area. The parcel level population numbers are then reaggregated to the precinct level.
+       </div>
+       <div id="validation">
+           <div class="sub-title">Validation</div>
+            <img src="img/blue-line.png"/>
+            <div id="content-pr-validation">
+                <img src="img/validation.png" width="200" alt="Validation"/>
+           </div>
+       		<div id="content-pr-text-2" class="content-paragraph">
+Tract -- 419,681<br />
+Precinct -- 418,699<br />
+<br />
+The difference between tract and precinct population is 0.23%, which is caused when we apply the proxy to the tract population by rounding up the decimal points in population data.
+       		</div>
+         </div>
+    </div>
+    
+    <div id="pt">
+    	<div class="sub-title"><a name="pt">Participation trends</a></div>
+        <img src="img/blue-line.png"/>
+        <div id="content-pt-img">
+       		<img src="img/trend-map.png" width="600" alt="Potential Eligible Voter Participation, 2005-2012, City of Boston"/>
+       	 </div>
+         <div id="content-pt-text-1" class="content-paragraph">The re-aggregated eligible voter population data was then used to recalculate voter participation in actual elections between 2005 and 2012. Voter participation in these elections was calculated by dividing the number of ballots cast by the re-aggregated eligible voter population.
+         </div>
+         <div id="content-pt-chart">
+       		<img src="img/trend-chart.png" width="400" alt="Participation trends under two different presidents"/>
+       	 </div>
+         <div id="content-pt-text-2" class="content-title">A negative relationship between participation and<br/>the difference in participation between precincts
+         </div>
+         <div id="content-pt-text-3" class="content-paragraph">One spatial trend that was revealed was that as overall eligible voter participation increased in the city, the differences in participation between precincts decreased (see line chart). In the 2007 and 2011 elections, participation overall reached their lowest points, while the overall differences in participation between precincts were at their most extreme. This pattern held true across all types of elections - municipal, state and federal - and across both Republican and Democratic federal administrations.
+         </div>
+         <div id="content-pt-text-4" class="content-title">4-year cycle
+         </div>
+         <div id="content-pt-text-5" class="content-paragraph">Participation rates across time have followed a remarkably similar pattern, regardless of which political party was in power at the federal level. Voter participation rates are highest for all races during a presidential election, and this is also when differences in voter participation between precincts are at their lowest. The year after a presidential election, during a municipal election, overall participation drops to around 25%, revealing significant differences in participation between voting precincts across the city. The following year, during a state or midterm congressional election, participation rises toward 40%, with a concomitant decrease in differences in participation between precincts. Finally, with the return of another presidential election, voter participation reaches a peak of over 50%, and differences amongst precincts are minimal.
+         </div>
+         <div id="content-pt-text-6" class="content-note">*Over 100% participation is inevitable because the ACS 2011 data only represents 5% sample data over 5 years, and the estimated population must be different than the true population.
+         </div>
+    </div>
+    
+    <div id="conclusion">
+    	<div class="sub-title"><a name="conclusion">Conclusion</a></div>
+        <img src="img/blue-line.png"/>
+        <div id="content-conclusion" class="content-paragraph"><p>A cadastral-based dasymetric mapping method is demonstrated to estimate the potential eligible voter participation at the precinct level in the City of Boston. Parcel property polygons, which provide information on available living area for residential buildings, are used as the medium for disaggregation of American Community Survey data and reaggregation to the voting precinct level. Validation measures show that this process produces low overall rates of error. Differences between the re-aggregated data and original Census data are approximately 0.23% and the pattern of errors or differences is random, showing no spatial bias. An analysis of re-aggregated eligible voter participation in Boston precincts for the period 2005 to 2012 shows a recurring cycle in overall citywide participation and in the relative differences in eligible voter participation between precincts.</p><p>
+This method can also be used to re-aggregate population to almost any kind of boundary to support different sections’ requirement to population precision, such as flood zone population for insurance companies. The result of this research can also be used for supporting election campaigns to allocate their campaign resources to the highest voter participation districts.
+         </p></div>
+    </div>
+    <div id="contact">
+    	<div class="sub-title">Contact</div>
+        <img src="img/blue-line.png"/>
+        <div id="content-contact" class="content-paragraph">Zhenyang Hua | edison.hua@gmail.com<br/>
+Marcos Luna | mluna@salemstate.edu
+         </div>
+    </div>
+    <div id="footer" class="content-paragraph">
+    	<p>Copyright 2014, who could really vote.</p>
+    </div>
+    
+</div>
+</div>
+    
+</body>
+</html>
